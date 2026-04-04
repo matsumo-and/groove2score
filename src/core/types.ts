@@ -1,19 +1,19 @@
 /** A note as parsed directly from MIDI, in seconds. */
 export interface RawNote {
-  pitch: number;       // MIDI note number (0–127)
-  velocity: number;    // 0–127
-  startTime: number;   // seconds
-  duration: number;    // seconds
+  pitch: number; // MIDI note number (0–127)
+  velocity: number; // 0–127
+  startTime: number; // seconds
+  duration: number; // seconds
 }
 
 /** Drum mapping entry loaded from mapping.json. */
 export interface DrumMapping {
   part: string;
   voice: 1 | 2;
-  step: string;        // e.g. "C", "G"
+  step: string; // e.g. "C", "G"
   octave: number;
-  notehead: "normal" | "x" | "diamond";
-  stemDirection: "up" | "down";
+  notehead: 'normal' | 'x' | 'diamond';
+  stemDirection: 'up' | 'down';
 }
 
 /** A note after applying drum mapping. */
@@ -30,5 +30,5 @@ export interface QuantizedNote extends MappedNote {
 export interface Chord {
   gridPosition: number;
   notes: QuantizedNote[];
-  isGhost: boolean;     // true if ALL notes are ghost notes
+  isGhost: boolean; // true if ALL notes are ghost notes
 }

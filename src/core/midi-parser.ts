@@ -1,8 +1,10 @@
 // @tonejs/midi is CJS — use default import
-import MidiPkg from "@tonejs/midi";
-const { Midi } = MidiPkg as typeof import("@tonejs/midi");
-import { readFileSync } from "fs";
-import type { RawNote } from "./types.js";
+import MidiPkg from '@tonejs/midi';
+
+const { Midi } = MidiPkg as typeof import('@tonejs/midi');
+
+import { readFileSync } from 'fs';
+import type { RawNote } from './types.js';
 
 /**
  * Parse a MIDI file and return all notes from drum tracks.
@@ -20,8 +22,8 @@ export function parseMidi(filePath: string): RawNote[] {
     const isDrumTrack =
       track.channel === 9 ||
       track.instrument.percussion ||
-      track.name.toLowerCase().includes("drum") ||
-      track.name.toLowerCase().includes("perc");
+      track.name.toLowerCase().includes('drum') ||
+      track.name.toLowerCase().includes('perc');
 
     if (!isDrumTrack) continue;
 

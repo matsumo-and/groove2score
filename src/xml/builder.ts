@@ -1,5 +1,5 @@
-import type { Chord, QuantizedNote } from "../core/types.js";
-import { isGhostNote } from "../core/normalizer.js";
+import { isGhostNote } from '../core/normalizer.js';
+import type { Chord, QuantizedNote } from '../core/types.js';
 
 export interface BuildOptions {
   title?: string;
@@ -19,10 +19,10 @@ export interface BuildOptions {
 
 function escapeXml(s: string): string {
   return s
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;");
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
 }
 
 /** Grid units per measure (e.g. 16 for 4/4 with 1/16 subdivision) */
@@ -35,15 +35,15 @@ function gridsPerMeasure(opts: BuildOptions): number {
 /** Duration type name for MusicXML given a subdivision. */
 function durationTypeName(subdivision: number): string {
   const map: Record<number, string> = {
-    1: "whole",
-    2: "half",
-    4: "quarter",
-    8: "eighth",
-    16: "16th",
-    32: "32nd",
-    64: "64th",
+    1: 'whole',
+    2: 'half',
+    4: 'quarter',
+    8: 'eighth',
+    16: '16th',
+    32: '32nd',
+    64: '64th',
   };
-  return map[subdivision] ?? "16th";
+  return map[subdivision] ?? '16th';
 }
 
 /** Number of MusicXML <divisions> units per quarter note. We use subdivision. */
@@ -71,7 +71,7 @@ function computeRests(
   chords: Chord[],
   voice: 1 | 2,
   gpm: number,
-  totalMeasures: number
+  totalMeasures: number,
 ): RestEntry[] {
   const totalGrids = gpm * totalMeasures;
   const occupied = new Set<number>();
@@ -101,9 +101,9 @@ function computeRests(
 // ---------------------------------------------------------------------------
 
 function noteheadXml(type: string): string {
-  if (type === "x") return `        <notehead>x</notehead>\n`;
-  if (type === "diamond") return `        <notehead>diamond</notehead>\n`;
-  return "";
+  if (type === 'x') return `        <notehead>x</notehead>\n`;
+  if (type === 'diamond') return `        <notehead>diamond</notehead>\n`;
+  return '';
 }
 
 function buildNoteXml(
@@ -111,16 +111,16 @@ function buildNoteXml(
   isChordContinuation: boolean,
   subdivision: number,
   ghostThreshold: number,
-  divisionsPerQ: number
+  divisionsPerQ: number,
 ): string {
   const { mapping, velocity } = note;
   const ghost = isGhostNote(velocity, ghostThreshold);
-  const divisions = divisionsPerQ; // duration = 1 grid unit = divisionsPerQ / (subdivision/4)
+  const _divisions = divisionsPerQ; // duration = 1 grid unit = divisionsPerQ / (subdivision/4)
   // Each grid unit = 1/(subdivision) of a whole note = (4/subdivision) quarter notes
   const dur = 1; // 1 grid position wide
 
-  let xml = "      <note>\n";
-  if (isChordContinuation) xml += "        <chord/>\n";
+  let xml = '      <note>\n';
+  if (isChordContinuation) xml += '        <chord/>\n';
   xml += `        <unpitched>\n`;
   xml += `          <display-step>${escapeXml(mapping.step)}</display-step>\n`;
   xml += `          <display-octave>${mapping.octave}</display-octave>\n`;
@@ -128,23 +128,24 @@ function buildNoteXml(
   xml += `        <duration>${dur}</duration>\n`;
   xml += `        <voice>${mapping.voice}</voice>\n`;
   xml += `        <type>${durationTypeName(subdivision)}</type>\n`;
-  if (ghost) xml += `        <notations><technical><other-technical>ghost</other-technical></technical></notations>\n`;
+  if (ghost)
+    xml += `        <notations><technical><other-technical>ghost</other-technical></technical></notations>\n`;
   xml += noteheadXml(mapping.notehead);
   xml += `        <stem>${mapping.stemDirection}</stem>\n`;
-  xml += "      </note>\n";
+  xml += '      </note>\n';
   return xml;
 }
 
 function buildRestXml(voice: 1 | 2, duration: number, subdivision: number): string {
   // For simplicity, always emit 1-grid-unit rests (could be merged later)
-  let xml = "";
+  let xml = '';
   for (let i = 0; i < duration; i++) {
-    xml += "      <note>\n";
-    xml += "        <rest/>\n";
-    xml += "        <duration>1</duration>\n";
+    xml += '      <note>\n';
+    xml += '        <rest/>\n';
+    xml += '        <duration>1</duration>\n';
     xml += `        <voice>${voice}</voice>\n`;
     xml += `        <type>${durationTypeName(subdivision)}</type>\n`;
-    xml += "      </note>\n";
+    xml += '      </note>\n';
   }
   return xml;
 }
@@ -155,7 +156,7 @@ function buildRestXml(voice: 1 | 2, duration: number, subdivision: number): stri
 
 interface MeasureEvent {
   gridPosition: number; // relative to measure start
-  type: "chord" | "rest";
+  type: 'chord' | 'rest';
   chord?: Chord;
   rest?: RestEntry;
 }
@@ -165,47 +166,41 @@ function buildMeasureXml(
   events: MeasureEvent[],
   opts: BuildOptions,
   divisionsPerQ: number,
-  isFirst: boolean
+  isFirst: boolean,
 ): string {
   let xml = `    <measure number="${measureIndex + 1}">\n`;
 
   // Attributes block (first measure only)
   if (isFirst) {
-    xml += "      <attributes>\n";
+    xml += '      <attributes>\n';
     xml += `        <divisions>${divisionsPerQ}</divisions>\n`;
-    xml += "        <key><fifths>0</fifths></key>\n";
+    xml += '        <key><fifths>0</fifths></key>\n';
     xml += `        <time><beats>${opts.beatsPerMeasure}</beats><beat-type>${opts.beatUnit}</beat-type></time>\n`;
-    xml += "        <clef><sign>percussion</sign></clef>\n";
-    xml += "      </attributes>\n";
+    xml += '        <clef><sign>percussion</sign></clef>\n';
+    xml += '      </attributes>\n';
   }
 
   // Separate voice 1 and voice 2 events
   const v1 = events.filter(
     (e) =>
-      (e.type === "chord" && e.chord!.notes.some((n) => n.mapping.voice === 1)) ||
-      (e.type === "rest" && e.rest!.voice === 1)
+      (e.type === 'chord' && e.chord!.notes.some((n) => n.mapping.voice === 1)) ||
+      (e.type === 'rest' && e.rest!.voice === 1),
   );
   const v2 = events.filter(
     (e) =>
-      (e.type === "chord" && e.chord!.notes.some((n) => n.mapping.voice === 2)) ||
-      (e.type === "rest" && e.rest!.voice === 2)
+      (e.type === 'chord' && e.chord!.notes.some((n) => n.mapping.voice === 2)) ||
+      (e.type === 'rest' && e.rest!.voice === 2),
   );
 
   // Emit voice 1 notes
   for (const ev of v1) {
-    if (ev.type === "rest") {
+    if (ev.type === 'rest') {
       xml += buildRestXml(1, ev.rest!.duration, opts.subdivision);
     } else {
       const chord = ev.chord!;
       const v1Notes = chord.notes.filter((n) => n.mapping.voice === 1);
       v1Notes.forEach((note, idx) => {
-        xml += buildNoteXml(
-          note,
-          idx > 0,
-          opts.subdivision,
-          opts.ghostThreshold,
-          divisionsPerQ
-        );
+        xml += buildNoteXml(note, idx > 0, opts.subdivision, opts.ghostThreshold, divisionsPerQ);
       });
     }
   }
@@ -216,25 +211,19 @@ function buildMeasureXml(
     xml += `      <backup><duration>${gpm}</duration></backup>\n`;
 
     for (const ev of v2) {
-      if (ev.type === "rest") {
+      if (ev.type === 'rest') {
         xml += buildRestXml(2, ev.rest!.duration, opts.subdivision);
       } else {
         const chord = ev.chord!;
         const v2Notes = chord.notes.filter((n) => n.mapping.voice === 2);
         v2Notes.forEach((note, idx) => {
-          xml += buildNoteXml(
-            note,
-            idx > 0,
-            opts.subdivision,
-            opts.ghostThreshold,
-            divisionsPerQ
-          );
+          xml += buildNoteXml(note, idx > 0, opts.subdivision, opts.ghostThreshold, divisionsPerQ);
         });
       }
     }
   }
 
-  xml += "    </measure>\n";
+  xml += '    </measure>\n';
   return xml;
 }
 
@@ -244,10 +233,7 @@ function buildMeasureXml(
 
 export function buildMusicXml(chords: Chord[], opts: BuildOptions): string {
   const gpm = gridsPerMeasure(opts);
-  const maxGrid =
-    chords.length > 0
-      ? Math.max(...chords.map((c) => c.gridPosition)) + 1
-      : gpm;
+  const maxGrid = chords.length > 0 ? Math.max(...chords.map((c) => c.gridPosition)) + 1 : gpm;
   const totalMeasures = Math.ceil(maxGrid / gpm);
   const divisionsPerQ = divisionsPerQuarter(opts.subdivision);
 
@@ -255,7 +241,7 @@ export function buildMusicXml(chords: Chord[], opts: BuildOptions): string {
   const rests1 = computeRests(chords, 1, gpm, totalMeasures);
   const rests2 = computeRests(chords, 2, gpm, totalMeasures);
 
-  let measuresXml = "";
+  let measuresXml = '';
 
   for (let m = 0; m < totalMeasures; m++) {
     const measureStart = m * gpm;
@@ -268,7 +254,7 @@ export function buildMusicXml(chords: Chord[], opts: BuildOptions): string {
       if (chord.gridPosition >= measureStart && chord.gridPosition < measureEnd) {
         events.push({
           gridPosition: chord.gridPosition - measureStart,
-          type: "chord",
+          type: 'chord',
           chord,
         });
       }
@@ -280,7 +266,7 @@ export function buildMusicXml(chords: Chord[], opts: BuildOptions): string {
         const clipped = Math.min(rest.duration, measureEnd - rest.gridPosition);
         events.push({
           gridPosition: rest.gridPosition - measureStart,
-          type: "rest",
+          type: 'rest',
           rest: { ...rest, duration: clipped },
         });
       }
@@ -292,7 +278,7 @@ export function buildMusicXml(chords: Chord[], opts: BuildOptions): string {
         const clipped = Math.min(rest.duration, measureEnd - rest.gridPosition);
         events.push({
           gridPosition: rest.gridPosition - measureStart,
-          type: "rest",
+          type: 'rest',
           rest: { ...rest, duration: clipped },
         });
       }
@@ -303,7 +289,7 @@ export function buildMusicXml(chords: Chord[], opts: BuildOptions): string {
     measuresXml += buildMeasureXml(m, events, opts, divisionsPerQ, m === 0);
   }
 
-  const title = opts.title ?? "Drum Score";
+  const title = opts.title ?? 'Drum Score';
 
   return `<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE score-partwise PUBLIC

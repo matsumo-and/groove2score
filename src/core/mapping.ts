@@ -1,12 +1,11 @@
-import { readFileSync } from "fs";
-import { createRequire } from "module";
-import type { DrumMapping, MappedNote, RawNote } from "./types.js";
+import { readFileSync } from 'fs';
+import type { DrumMapping, MappedNote, RawNote } from './types.js';
 
 export type DrumMappingTable = Record<string, DrumMapping>;
 
 /** Load a drum mapping from a JSON file path. */
 export function loadMapping(filePath: string): DrumMappingTable {
-  const raw = readFileSync(filePath, "utf-8");
+  const raw = readFileSync(filePath, 'utf-8');
   return JSON.parse(raw) as DrumMappingTable;
 }
 
@@ -14,10 +13,7 @@ export function loadMapping(filePath: string): DrumMappingTable {
  * Apply drum mapping to raw notes.
  * Notes with no mapping entry are silently dropped.
  */
-export function applyMapping(
-  notes: RawNote[],
-  mapping: DrumMappingTable
-): MappedNote[] {
+export function applyMapping(notes: RawNote[], mapping: DrumMappingTable): MappedNote[] {
   const result: MappedNote[] = [];
 
   for (const note of notes) {

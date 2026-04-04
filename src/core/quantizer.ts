@@ -1,4 +1,4 @@
-import type { MappedNote, QuantizedNote } from "./types.js";
+import type { MappedNote, QuantizedNote } from './types.js';
 
 export interface QuantizeOptions {
   /** Grid subdivision: 4=quarter, 8=eighth, 16=sixteenth, 32=32nd */
@@ -20,20 +20,14 @@ export function snapToGrid(timeSeconds: number, opts: QuantizeOptions): number {
 }
 
 /** Convert a grid position back to beat-based position (quarter notes). */
-export function gridToBeats(
-  gridPosition: number,
-  subdivision: number
-): number {
+export function gridToBeats(gridPosition: number, subdivision: number): number {
   return gridPosition / (subdivision / 4);
 }
 
 /**
  * Quantize all notes by snapping startTime to the nearest grid position.
  */
-export function quantizeNotes(
-  notes: MappedNote[],
-  opts: QuantizeOptions
-): QuantizedNote[] {
+export function quantizeNotes(notes: MappedNote[], opts: QuantizeOptions): QuantizedNote[] {
   return notes.map((note) => ({
     ...note,
     gridPosition: snapToGrid(note.startTime, opts),

@@ -1,4 +1,4 @@
-import type { Chord, QuantizedNote } from "./types.js";
+import type { Chord, QuantizedNote } from './types.js';
 
 export interface NormalizeOptions {
   ghostThreshold: number; // velocity below this = ghost note
@@ -8,10 +8,7 @@ export interface NormalizeOptions {
  * Merge notes at the same grid position into chords.
  * A chord is marked ghost if ALL its notes are below the threshold.
  */
-export function mergeIntoChords(
-  notes: QuantizedNote[],
-  opts: NormalizeOptions
-): Chord[] {
+export function mergeIntoChords(notes: QuantizedNote[], opts: NormalizeOptions): Chord[] {
   // Group by grid position
   const groups = new Map<number, QuantizedNote[]>();
 
@@ -36,9 +33,6 @@ export function mergeIntoChords(
 }
 
 /** Returns true if a single note is a ghost note. */
-export function isGhostNote(
-  velocity: number,
-  threshold: number
-): boolean {
+export function isGhostNote(velocity: number, threshold: number): boolean {
   return velocity < threshold;
 }
