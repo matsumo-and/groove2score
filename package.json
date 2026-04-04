@@ -1,0 +1,45 @@
+{
+  "name": "groove2score",
+  "version": "0.1.0",
+  "description": "Convert drum MIDI files into clean MusicXML notation",
+  "type": "module",
+  "bin": {
+    "groove2score": "./dist/cli/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "node --import tsx/esm src/cli/index.ts",
+    "test": "node --experimental-vm-modules node_modules/.bin/jest",
+    "lint": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@tonejs/midi": "^2.0.28",
+    "commander": "^12.0.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "@types/node": "^22.0.0",
+    "jest": "^29.0.0",
+    "ts-jest": "^29.0.0",
+    "tsx": "^4.0.0",
+    "typescript": "^5.4.0"
+  },
+  "jest": {
+    "preset": "ts-jest/presets/default-esm",
+    "extensionsToTreatAsEsm": [
+      ".ts"
+    ],
+    "moduleNameMapper": {
+      "^(\\.{1,2}/.*)\\.js$": "$1"
+    },
+    "transform": {
+      "^.+\\.tsx?$": [
+        "ts-jest",
+        {
+          "useESM": true,
+          "tsconfig": "tsconfig.test.json"
+        }
+      ]
+    }
+  }
+}

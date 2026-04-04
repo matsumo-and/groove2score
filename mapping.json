@@ -1,0 +1,18 @@
+{
+  "36": { "part": "kick",        "voice": 2, "step": "C", "octave": 5, "notehead": "normal", "stemDirection": "down" },
+  "38": { "part": "snare",       "voice": 1, "step": "C", "octave": 5, "notehead": "normal", "stemDirection": "up"   },
+  "40": { "part": "snare-rim",   "voice": 1, "step": "C", "octave": 5, "notehead": "x",      "stemDirection": "up"   },
+  "42": { "part": "hihat-closed","voice": 1, "step": "G", "octave": 5, "notehead": "x",      "stemDirection": "up"   },
+  "44": { "part": "hihat-pedal", "voice": 2, "step": "G", "octave": 4, "notehead": "x",      "stemDirection": "down" },
+  "46": { "part": "hihat-open",  "voice": 1, "step": "A", "octave": 5, "notehead": "x",      "stemDirection": "up"   },
+  "49": { "part": "crash-1",     "voice": 1, "step": "A", "octave": 5, "notehead": "x",      "stemDirection": "up"   },
+  "51": { "part": "ride",        "voice": 1, "step": "F", "octave": 5, "notehead": "x",      "stemDirection": "up"   },
+  "55": { "part": "splash",      "voice": 1, "step": "A", "octave": 5, "notehead": "x",      "stemDirection": "up"   },
+  "57": { "part": "crash-2",     "voice": 1, "step": "A", "octave": 5, "notehead": "x",      "stemDirection": "up"   },
+  "41": { "part": "tom-low",     "voice": 2, "step": "A", "octave": 4, "notehead": "normal", "stemDirection": "down" },
+  "43": { "part": "tom-hi-floor","voice": 2, "step": "B", "octave": 4, "notehead": "normal", "stemDirection": "down" },
+  "45": { "part": "tom-mid",     "voice": 2, "step": "D", "octave": 5, "notehead": "normal", "stemDirection": "down" },
+  "47": { "part": "tom-hi-mid",  "voice": 2, "step": "E", "octave": 5, "notehead": "normal", "stemDirection": "down" },
+  "48": { "part": "tom-hi",      "voice": 2, "step": "F", "octave": 5, "notehead": "normal", "stemDirection": "down" },
+  "50": { "part": "tom-hi-2",    "voice": 1, "step": "G", "octave": 5, "notehead": "normal", "stemDirection": "up"   }
+}
