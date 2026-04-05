@@ -22,10 +22,31 @@ describe('default.json validation', () => {
     const data = JSON.parse(raw);
 
     const validPartTypes = new Set([
-      'BassDrum', 'Snare', 'HiHat', 'Crash', 'Ride', 'Tom', 'FloorTom',
-      'Splash', 'China', 'Cowbell', 'Clap', 'Tambourine', 'Conga', 'Bongo',
-      'Timbale', 'Agogo', 'Cabasa', 'Maracas', 'Whistle', 'Guiro', 'Claves',
-      'WoodBlock', 'Cuica', 'Triangle', 'Vibraslap'
+      'BassDrum',
+      'Snare',
+      'HiHat',
+      'Crash',
+      'Ride',
+      'Tom',
+      'FloorTom',
+      'Splash',
+      'China',
+      'Cowbell',
+      'Clap',
+      'Tambourine',
+      'Conga',
+      'Bongo',
+      'Timbale',
+      'Agogo',
+      'Cabasa',
+      'Maracas',
+      'Whistle',
+      'Guiro',
+      'Claves',
+      'WoodBlock',
+      'Cuica',
+      'Triangle',
+      'Vibraslap',
     ]);
 
     for (const [note, mapping] of Object.entries(data)) {

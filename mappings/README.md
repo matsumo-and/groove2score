@@ -11,12 +11,30 @@ This directory contains drum mapping configuration files that define how MIDI no
 Each mapping file is a JSON object where:
 - Keys are MIDI note numbers (35-81 for GM drums)
 - Values contain notation details:
-  - `part`: Instrument name
+  - `name`: Human-readable instrument name (e.g., "Acoustic Bass Drum")
+  - `part`: Standardized instrument type from the following list:
+    - `BassDrum`, `Snare`, `HiHat`, `Crash`, `Ride`, `Tom`, `FloorTom`
+    - `Splash`, `China`, `Cowbell`, `Clap`, `Tambourine`, `Conga`, `Bongo`
+    - `Timbale`, `Agogo`, `Cabasa`, `Maracas`, `Whistle`, `Guiro`, `Claves`
+    - `WoodBlock`, `Cuica`, `Triangle`, `Vibraslap`
   - `voice`: Voice number (1 or 2)
   - `step`: Note name (C, D, E, F, G, A, B)
   - `octave`: Octave number
   - `notehead`: Notehead type (normal, x, circle-x, diamond, triangle)
   - `stemDirection`: Stem direction (up or down)
+
+### Example Entry
+```json
+"38": {
+  "name": "Acoustic Snare",
+  "part": "Snare",
+  "voice": 1,
+  "step": "D",
+  "octave": 1,
+  "notehead": "normal",
+  "stemDirection": "up"
+}
+```
 
 ## General MIDI Drum Map Reference
 
