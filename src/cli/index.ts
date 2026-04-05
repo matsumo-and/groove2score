@@ -10,10 +10,10 @@ import { quantizeNotes } from '../core/quantizer.js';
 import { buildMusicXml } from '../xml/builder.js';
 
 // ---------------------------------------------------------------------------
-// Default mapping path (bundled mapping.json beside the package root)
+// Default mapping path (bundled mappings/default.json)
 // ---------------------------------------------------------------------------
 const _require = createRequire(import.meta.url);
-const DEFAULT_MAPPING = new URL('../../mapping.json', import.meta.url).pathname;
+const DEFAULT_MAPPING = new URL('../../mappings/default.json', import.meta.url).pathname;
 
 // ---------------------------------------------------------------------------
 // CLI

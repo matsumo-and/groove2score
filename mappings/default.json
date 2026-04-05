@@ -1,0 +1,425 @@
+{
+  "35": {
+    "name": "Acoustic Bass Drum",
+    "part": "BassDrum",
+    "voice": 2,
+    "step": "B",
+    "octave": 0,
+    "notehead": "normal",
+    "stemDirection": "down"
+  },
+  "36": {
+    "name": "Bass Drum 1",
+    "part": "BassDrum",
+    "voice": 2,
+    "step": "C",
+    "octave": 1,
+    "notehead": "normal",
+    "stemDirection": "down"
+  },
+  "37": {
+    "name": "Side Stick",
+    "part": "Snare",
+    "voice": 1,
+    "step": "C",
+    "octave": 1,
+    "notehead": "x",
+    "stemDirection": "up"
+  },
+  "38": {
+    "name": "Acoustic Snare",
+    "part": "Snare",
+    "voice": 1,
+    "step": "D",
+    "octave": 1,
+    "notehead": "normal",
+    "stemDirection": "up"
+  },
+  "39": {
+    "name": "Hand Clap",
+    "part": "Clap",
+    "voice": 1,
+    "step": "D",
+    "octave": 1,
+    "notehead": "triangle",
+    "stemDirection": "up"
+  },
+  "40": {
+    "name": "Electric Snare",
+    "part": "Snare",
+    "voice": 1,
+    "step": "E",
+    "octave": 1,
+    "notehead": "normal",
+    "stemDirection": "up"
+  },
+  "41": {
+    "name": "Low Floor Tom",
+    "part": "FloorTom",
+    "voice": 2,
+    "step": "F",
+    "octave": 1,
+    "notehead": "normal",
+    "stemDirection": "down"
+  },
+  "42": {
+    "name": "Closed Hi-Hat",
+    "part": "HiHat",
+    "voice": 1,
+    "step": "F",
+    "octave": 1,
+    "notehead": "x",
+    "stemDirection": "up"
+  },
+  "43": {
+    "name": "High Floor Tom",
+    "part": "FloorTom",
+    "voice": 2,
+    "step": "G",
+    "octave": 1,
+    "notehead": "normal",
+    "stemDirection": "down"
+  },
+  "44": {
+    "name": "Pedal Hi-Hat",
+    "part": "HiHat",
+    "voice": 2,
+    "step": "G",
+    "octave": 1,
+    "notehead": "x",
+    "stemDirection": "down"
+  },
+  "45": {
+    "name": "Low Tom",
+    "part": "Tom",
+    "voice": 2,
+    "step": "A",
+    "octave": 1,
+    "notehead": "normal",
+    "stemDirection": "down"
+  },
+  "46": {
+    "name": "Open Hi-Hat",
+    "part": "HiHat",
+    "voice": 1,
+    "step": "A",
+    "octave": 1,
+    "notehead": "circle-x",
+    "stemDirection": "up"
+  },
+  "47": {
+    "name": "Low-Mid Tom",
+    "part": "Tom",
+    "voice": 2,
+    "step": "B",
+    "octave": 1,
+    "notehead": "normal",
+    "stemDirection": "down"
+  },
+  "48": {
+    "name": "Hi-Mid Tom",
+    "part": "Tom",
+    "voice": 2,
+    "step": "C",
+    "octave": 2,
+    "notehead": "normal",
+    "stemDirection": "down"
+  },
+  "49": {
+    "name": "Crash Cymbal 1",
+    "part": "Crash",
+    "voice": 1,
+    "step": "C",
+    "octave": 2,
+    "notehead": "x",
+    "stemDirection": "up"
+  },
+  "50": {
+    "name": "High Tom",
+    "part": "Tom",
+    "voice": 2,
+    "step": "D",
+    "octave": 2,
+    "notehead": "normal",
+    "stemDirection": "down"
+  },
+  "51": {
+    "name": "Ride Cymbal 1",
+    "part": "Ride",
+    "voice": 1,
+    "step": "D",
+    "octave": 2,
+    "notehead": "x",
+    "stemDirection": "up"
+  },
+  "52": {
+    "name": "Chinese Cymbal",
+    "part": "China",
+    "voice": 1,
+    "step": "E",
+    "octave": 2,
+    "notehead": "x",
+    "stemDirection": "up"
+  },
+  "53": {
+    "name": "Ride Bell",
+    "part": "Ride",
+    "voice": 1,
+    "step": "F",
+    "octave": 2,
+    "notehead": "diamond",
+    "stemDirection": "up"
+  },
+  "54": {
+    "name": "Tambourine",
+    "part": "Tambourine",
+    "voice": 1,
+    "step": "F",
+    "octave": 2,
+    "notehead": "diamond",
+    "stemDirection": "up"
+  },
+  "55": {
+    "name": "Splash Cymbal",
+    "part": "Splash",
+    "voice": 1,
+    "step": "G",
+    "octave": 2,
+    "notehead": "x",
+    "stemDirection": "up"
+  },
+  "56": {
+    "name": "Cowbell",
+    "part": "Cowbell",
+    "voice": 1,
+    "step": "G",
+    "octave": 2,
+    "notehead": "triangle",
+    "stemDirection": "up"
+  },
+  "57": {
+    "name": "Crash Cymbal 2",
+    "part": "Crash",
+    "voice": 1,
+    "step": "A",
+    "octave": 2,
+    "notehead": "x",
+    "stemDirection": "up"
+  },
+  "58": {
+    "name": "Vibraslap",
+    "part": "Vibraslap",
+    "voice": 1,
+    "step": "A",
+    "octave": 2,
+    "notehead": "diamond",
+    "stemDirection": "up"
+  },
+  "59": {
+    "name": "Ride Cymbal 2",
+    "part": "Ride",
+    "voice": 1,
+    "step": "B",
+    "octave": 2,
+    "notehead": "x",
+    "stemDirection": "up"
+  },
+  "60": {
+    "name": "Hi Bongo",
+    "part": "Bongo",
+    "voice": 1,
+    "step": "C",
+    "octave": 3,
+    "notehead": "normal",
+    "stemDirection": "up"
+  },
+  "61": {
+    "name": "Low Bongo",
+    "part": "Bongo",
+    "voice": 1,
+    "step": "C",
+    "octave": 3,
+    "notehead": "normal",
+    "stemDirection": "up"
+  },
+  "62": {
+    "name": "Mute Hi Conga",
+    "part": "Conga",
+    "voice": 1,
+    "step": "D",
+    "octave": 3,
+    "notehead": "normal",
+    "stemDirection": "up"
+  },
+  "63": {
+    "name": "Open Hi Conga",
+    "part": "Conga",
+    "voice": 1,
+    "step": "D",
+    "octave": 3,
+    "notehead": "normal",
+    "stemDirection": "up"
+  },
+  "64": {
+    "name": "Low Conga",
+    "part": "Conga",
+    "voice": 1,
+    "step": "E",
+    "octave": 3,
+    "notehead": "normal",
+    "stemDirection": "up"
+  },
+  "65": {
+    "name": "High Timbale",
+    "part": "Timbale",
+    "voice": 1,
+    "step": "F",
+    "octave": 3,
+    "notehead": "normal",
+    "stemDirection": "up"
+  },
+  "66": {
+    "name": "Low Timbale",
+    "part": "Timbale",
+    "voice": 1,
+    "step": "F",
+    "octave": 3,
+    "notehead": "normal",
+    "stemDirection": "up"
+  },
+  "67": {
+    "name": "High Agogo",
+    "part": "Agogo",
+    "voice": 1,
+    "step": "G",
+    "octave": 3,
+    "notehead": "normal",
+    "stemDirection": "up"
+  },
+  "68": {
+    "name": "Low Agogo",
+    "part": "Agogo",
+    "voice": 1,
+    "step": "G",
+    "octave": 3,
+    "notehead": "normal",
+    "stemDirection": "up"
+  },
+  "69": {
+    "name": "Cabasa",
+    "part": "Cabasa",
+    "voice": 1,
+    "step": "A",
+    "octave": 3,
+    "notehead": "normal",
+    "stemDirection": "up"
+  },
+  "70": {
+    "name": "Maracas",
+    "part": "Maracas",
+    "voice": 1,
+    "step": "A",
+    "octave": 3,
+    "notehead": "normal",
+    "stemDirection": "up"
+  },
+  "71": {
+    "name": "Short Whistle",
+    "part": "Whistle",
+    "voice": 1,
+    "step": "B",
+    "octave": 3,
+    "notehead": "normal",
+    "stemDirection": "up"
+  },
+  "72": {
+    "name": "Long Whistle",
+    "part": "Whistle",
+    "voice": 1,
+    "step": "C",
+    "octave": 4,
+    "notehead": "normal",
+    "stemDirection": "up"
+  },
+  "73": {
+    "name": "Short Guiro",
+    "part": "Guiro",
+    "voice": 1,
+    "step": "C",
+    "octave": 4,
+    "notehead": "normal",
+    "stemDirection": "up"
+  },
+  "74": {
+    "name": "Long Guiro",
+    "part": "Guiro",
+    "voice": 1,
+    "step": "D",
+    "octave": 4,
+    "notehead": "normal",
+    "stemDirection": "up"
+  },
+  "75": {
+    "name": "Claves",
+    "part": "Claves",
+    "voice": 1,
+    "step": "D",
+    "octave": 4,
+    "notehead": "normal",
+    "stemDirection": "up"
+  },
+  "76": {
+    "name": "Hi Wood Block",
+    "part": "WoodBlock",
+    "voice": 1,
+    "step": "E",
+    "octave": 4,
+    "notehead": "normal",
+    "stemDirection": "up"
+  },
+  "77": {
+    "name": "Low Wood Block",
+    "part": "WoodBlock",
+    "voice": 1,
+    "step": "F",
+    "octave": 4,
+    "notehead": "normal",
+    "stemDirection": "up"
+  },
+  "78": {
+    "name": "Mute Cuica",
+    "part": "Cuica",
+    "voice": 1,
+    "step": "F",
+    "octave": 4,
+    "notehead": "normal",
+    "stemDirection": "up"
+  },
+  "79": {
+    "name": "Open Cuica",
+    "part": "Cuica",
+    "voice": 1,
+    "step": "G",
+    "octave": 4,
+    "notehead": "normal",
+    "stemDirection": "up"
+  },
+  "80": {
+    "name": "Mute Triangle",
+    "part": "Triangle",
+    "voice": 1,
+    "step": "G",
+    "octave": 4,
+    "notehead": "normal",
+    "stemDirection": "up"
+  },
+  "81": {
+    "name": "Open Triangle",
+    "part": "Triangle",
+    "voice": 1,
+    "step": "A",
+    "octave": 4,
+    "notehead": "normal",
+    "stemDirection": "up"
+  }
+}

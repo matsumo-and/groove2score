@@ -6,15 +6,10 @@ export interface RawNote {
   duration: number; // seconds
 }
 
+import type { DrumMappingEntry } from './drum-parts.js';
+
 /** Drum mapping entry loaded from mapping.json. */
-export interface DrumMapping {
-  part: string;
-  voice: 1 | 2;
-  step: string; // e.g. "C", "G"
-  octave: number;
-  notehead: 'normal' | 'x' | 'diamond';
-  stemDirection: 'up' | 'down';
-}
+export type DrumMapping = Omit<DrumMappingEntry, 'name'>;
 
 /** A note after applying drum mapping. */
 export interface MappedNote extends RawNote {

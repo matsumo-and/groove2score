@@ -1,12 +1,25 @@
 import { readFileSync } from 'fs';
-import type { DrumMapping, MappedNote, RawNote } from './types.js';
+import { drumMappingSchema, type DrumMappingTable } from './drum-parts.js';
+import type { MappedNote, RawNote } from './types.js';
 
-export type DrumMappingTable = Record<string, DrumMapping>;
+export type { DrumMappingTable };
 
-/** Load a drum mapping from a JSON file path. */
+/** Load and validate a drum mapping from a JSON file path. */
 export function loadMapping(filePath: string): DrumMappingTable {
   const raw = readFileSync(filePath, 'utf-8');
-  return JSON.parse(raw) as DrumMappingTable;
+  const data = JSON.parse(raw);
+
+  // Validate the mapping with Zod
+  const result = drumMappingSchema.safeParse(data);
+  if (!result.success) {
+    throw new Error(
+      `Invalid drum mapping in ${filePath}:\n${result.error.issues
+        .map((issue) => `  - ${issue.path.join('.')}: ${issue.message}`)
+        .join('\n')}`,
+    );
+  }
+
+  return result.data;
 }
 
 /**

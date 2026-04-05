@@ -4,7 +4,8 @@ import type { RawNote } from '../src/core/types.js';
 
 const testMapping: DrumMappingTable = {
   '36': {
-    part: 'kick',
+    name: 'Bass Drum',
+    part: 'BassDrum',
     voice: 2,
     step: 'C',
     octave: 5,
@@ -12,7 +13,8 @@ const testMapping: DrumMappingTable = {
     stemDirection: 'down',
   },
   '38': {
-    part: 'snare',
+    name: 'Snare',
+    part: 'Snare',
     voice: 1,
     step: 'C',
     octave: 5,
@@ -32,8 +34,8 @@ describe('applyMapping', () => {
   test('maps known pitches', () => {
     const result = applyMapping([raw(36), raw(38)], testMapping);
     expect(result).toHaveLength(2);
-    expect(result[0].mapping.part).toBe('kick');
-    expect(result[1].mapping.part).toBe('snare');
+    expect(result[0].mapping.part).toBe('BassDrum');
+    expect(result[1].mapping.part).toBe('Snare');
   });
 
   test('drops unknown pitches', () => {

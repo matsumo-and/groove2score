@@ -2,9 +2,9 @@ import { quantizeNotes, snapToGrid } from '../src/core/quantizer.js';
 import type { MappedNote } from '../src/core/types.js';
 
 const dummyMapping = {
-  part: 'kick',
+  part: 'BassDrum',
   voice: 2 as const,
-  step: 'C',
+  step: 'C' as const,
   octave: 5,
   notehead: 'normal' as const,
   stemDirection: 'down' as const,

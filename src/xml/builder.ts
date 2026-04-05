@@ -1,4 +1,5 @@
 import { isGhostNote } from '../core/normalizer.js';
+import type { NoteheadType } from '../core/drum-parts.js';
 import type { Chord, QuantizedNote } from '../core/types.js';
 
 export interface BuildOptions {
