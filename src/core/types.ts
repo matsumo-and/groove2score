@@ -1,15 +1,16 @@
-/** A note as parsed directly from MIDI, in seconds. */
+/** A note as parsed directly from MIDI. */
 export interface RawNote {
   pitch: number; // MIDI note number (0–127)
   velocity: number; // 0–127
-  startTime: number; // seconds
+  ticks: number; // MIDI tick position (absolute)
+  startTime: number; // seconds (for reference only)
   duration: number; // seconds
 }
 
 import type { DrumMappingEntry } from './drum-parts.js';
 
 /** Drum mapping entry loaded from mapping.json. */
-export type DrumMapping = Omit<DrumMappingEntry, 'name'>;
+export type DrumMapping = DrumMappingEntry;
 
 /** A note after applying drum mapping. */
 export interface MappedNote extends RawNote {

@@ -1,5 +1,5 @@
 import { readFileSync } from 'fs';
-import { drumMappingSchema, type DrumMappingTable } from './drum-parts.js';
+import { type DrumMappingTable, drumMappingSchema } from './drum-parts.js';
 import type { MappedNote, RawNote } from './types.js';
 
 export type { DrumMappingTable };

@@ -1,5 +1,5 @@
 import { readFileSync } from 'fs';
-import { drumMappingSchema } from '../src/core/drum-parts.js';
+import { DrumMappingEntry, drumMappingSchema } from '../src/core/drum-parts.js';
 
 describe('default.json validation', () => {
   test('default.json conforms to drumMappingSchema', () => {
@@ -49,8 +49,8 @@ describe('default.json validation', () => {
       'Vibraslap',
     ]);
 
-    for (const [note, mapping] of Object.entries(data)) {
-      expect(validPartTypes.has((mapping as any).part)).toBe(true);
+    for (const [_, mapping] of Object.entries(data)) {
+      expect(validPartTypes.has((mapping as DrumMappingEntry).part)).toBe(true);
     }
   });
 });

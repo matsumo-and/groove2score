@@ -26,6 +26,7 @@ const testMapping: DrumMappingTable = {
 const raw = (pitch: number): RawNote => ({
   pitch,
   velocity: 100,
+  ticks: 0,
   startTime: 0,
   duration: 0.1,
 });

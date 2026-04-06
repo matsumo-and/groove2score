@@ -17,11 +17,13 @@ function kickChord(gridPosition: number): Chord {
       {
         pitch: 36,
         velocity: 100,
+        ticks: 0,
         startTime: 0,
         duration: 0.1,
         gridPosition,
         mapping: {
-          part: 'kick',
+          name: 'Bass Drum 1',
+          part: 'BassDrum',
           voice: 2,
           step: 'C',
           octave: 5,

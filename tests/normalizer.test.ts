@@ -4,11 +4,13 @@ import type { QuantizedNote } from '../src/core/types.js';
 const kick = (gridPosition: number, velocity = 100): QuantizedNote => ({
   pitch: 36,
   velocity,
+  ticks: 0,
   startTime: 0,
   duration: 0.1,
   gridPosition,
   mapping: {
-    part: 'kick',
+    name: 'Bass Drum 1',
+    part: 'BassDrum',
     voice: 2,
     step: 'C',
     octave: 5,
@@ -20,11 +22,13 @@ const kick = (gridPosition: number, velocity = 100): QuantizedNote => ({
 const snare = (gridPosition: number, velocity = 100): QuantizedNote => ({
   pitch: 38,
   velocity,
+  ticks: 0,
   startTime: 0,
   duration: 0.1,
   gridPosition,
   mapping: {
-    part: 'snare',
+    name: 'Acoustic Snare',
+    part: 'Snare',
     voice: 1,
     step: 'C',
     octave: 5,
@@ -58,11 +62,13 @@ describe('mergeIntoChords', () => {
     const hihat = (pos: number): QuantizedNote => ({
       pitch: 42,
       velocity: 80,
+      ticks: 0,
       startTime: 0,
       duration: 0.1,
       gridPosition: pos,
       mapping: {
-        part: 'hihat-closed',
+        name: 'Closed Hi-Hat',
+        part: 'HiHat',
         voice: 1,
         step: 'G',
         octave: 5,
