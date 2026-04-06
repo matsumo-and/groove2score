@@ -25,6 +25,7 @@ program
   .argument('<input>', 'Input MIDI file (.mid)')
   .option('-o, --output <file>', 'Output MusicXML file (.xml)')
   .option('--quantize <n>', 'Grid subdivision (4/8/16/32)', '16')
+  .option('--bpm <n>', 'Tempo in BPM (overrides MIDI tempo if specified)')
   .option('--mapping <file>', 'Path to drum mapping JSON', DEFAULT_MAPPING)
   .option('--ghost-threshold <n>', 'Velocity threshold for ghost notes', '40')
   .option('--time-sig <n/d>', 'Time signature (e.g. 4/4)', '4/4')
@@ -51,8 +52,11 @@ const beatUnit = parseInt(beatUnitStr, 10);
 // ---------------------------------------------------------------------------
 
 console.info(`[groove2score] Parsing: ${absInput}`);
-const { notes: rawNotes, ppq } = parseMidi(absInput);
-console.info(`[groove2score] Found ${rawNotes.length} drum note(s) (ppq=${ppq})`);
+const { notes: rawNotes, ppq, bpm: midiBpm } = parseMidi(absInput);
+const bpm = opts.bpm ? parseFloat(opts.bpm) : (midiBpm ?? 120);
+console.info(
+  `[groove2score] Found ${rawNotes.length} drum note(s) (ppq=${ppq}, bpm=${bpm}${midiBpm && !opts.bpm ? ' [from MIDI]' : opts.bpm ? ' [from --bpm]' : ' [default]'})`,
+);
 
 const mappingTable = loadMapping(opts.mapping as string);
 const mappedNotes = applyMapping(rawNotes, mappingTable);
@@ -69,6 +73,7 @@ const xml = buildMusicXml(chords, {
   beatsPerMeasure,
   beatUnit,
   ghostThreshold,
+  bpm,
 });
 
 if (opts.dryRun) {

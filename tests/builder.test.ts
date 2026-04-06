@@ -7,6 +7,7 @@ const opts = {
   beatsPerMeasure: 4,
   beatUnit: 4,
   ghostThreshold: 40,
+  bpm: 120,
 };
 
 function kickChord(gridPosition: number): Chord {

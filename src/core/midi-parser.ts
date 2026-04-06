@@ -10,6 +10,8 @@ export interface ParsedMidi {
   notes: RawNote[];
   /** Ticks per quarter note (PPQ) from the MIDI header. */
   ppq: number;
+  /** Tempo in BPM read from the MIDI file, or null if not present. */
+  bpm: number | null;
 }
 
 /**
@@ -49,8 +51,11 @@ export function parseMidi(filePath: string): ParsedMidi {
     }
   }
 
+  const firstTempo = midi.header.tempos[0];
+
   return {
     notes: notes.sort((a, b) => a.ticks - b.ticks),
     ppq: midi.header.ppq,
+    bpm: firstTempo ? Math.round(firstTempo.bpm) : null,
   };
 }

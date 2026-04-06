@@ -11,6 +11,8 @@ export interface BuildOptions {
   beatUnit: number;
   /** Velocity threshold for ghost notes */
   ghostThreshold: number;
+  /** Tempo in BPM for <sound> and <metronome> tags */
+  bpm: number;
 }
 
 // ---------------------------------------------------------------------------
@@ -178,6 +180,16 @@ function buildMeasureXml(
     xml += `        <time><beats>${opts.beatsPerMeasure}</beats><beat-type>${opts.beatUnit}</beat-type></time>\n`;
     xml += '        <clef><sign>percussion</sign></clef>\n';
     xml += '      </attributes>\n';
+    // Tempo direction
+    xml += '      <direction placement="above">\n';
+    xml += '        <direction-type>\n';
+    xml += `          <metronome parentheses="no">\n`;
+    xml += `            <beat-unit>quarter</beat-unit>\n`;
+    xml += `            <per-minute>${opts.bpm}</per-minute>\n`;
+    xml += '          </metronome>\n';
+    xml += '        </direction-type>\n';
+    xml += `        <sound tempo="${opts.bpm}"/>\n`;
+    xml += '      </direction>\n';
   }
 
   // Separate voice 1 and voice 2 events
