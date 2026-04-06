@@ -4,7 +4,7 @@
     "part": "BassDrum",
     "voice": 2,
     "step": "B",
-    "octave": 0,
+    "octave": 1,
     "notehead": "normal",
     "stemDirection": "down"
   },
@@ -13,7 +13,7 @@
     "part": "BassDrum",
     "voice": 2,
     "step": "C",
-    "octave": 1,
+    "octave": 2,
     "notehead": "normal",
     "stemDirection": "down"
   },
@@ -22,7 +22,7 @@
     "part": "Snare",
     "voice": 1,
     "step": "C",
-    "octave": 1,
+    "octave": 2,
     "notehead": "x",
     "stemDirection": "up"
   },
@@ -31,7 +31,7 @@
     "part": "Snare",
     "voice": 1,
     "step": "D",
-    "octave": 1,
+    "octave": 2,
     "notehead": "normal",
     "stemDirection": "up"
   },
@@ -40,7 +40,7 @@
     "part": "Clap",
     "voice": 1,
     "step": "D",
-    "octave": 1,
+    "octave": 2,
     "notehead": "triangle",
     "stemDirection": "up"
   },
@@ -49,7 +49,7 @@
     "part": "Snare",
     "voice": 1,
     "step": "E",
-    "octave": 1,
+    "octave": 2,
     "notehead": "normal",
     "stemDirection": "up"
   },
@@ -58,16 +58,16 @@
     "part": "FloorTom",
     "voice": 2,
     "step": "F",
-    "octave": 1,
+    "octave": 2,
     "notehead": "normal",
-    "stemDirection": "down"
+    "stemDirection": "up"
   },
   "42": {
     "name": "Closed Hi-Hat",
     "part": "HiHat",
     "voice": 1,
     "step": "F",
-    "octave": 1,
+    "octave": 2,
     "notehead": "x",
     "stemDirection": "up"
   },
@@ -76,16 +76,16 @@
     "part": "FloorTom",
     "voice": 2,
     "step": "G",
-    "octave": 1,
+    "octave": 2,
     "notehead": "normal",
-    "stemDirection": "down"
+    "stemDirection": "up"
   },
   "44": {
     "name": "Pedal Hi-Hat",
     "part": "HiHat",
     "voice": 2,
     "step": "G",
-    "octave": 1,
+    "octave": 2,
     "notehead": "x",
     "stemDirection": "down"
   },
@@ -94,16 +94,16 @@
     "part": "Tom",
     "voice": 2,
     "step": "A",
-    "octave": 1,
+    "octave": 2,
     "notehead": "normal",
-    "stemDirection": "down"
+    "stemDirection": "up"
   },
   "46": {
     "name": "Open Hi-Hat",
     "part": "HiHat",
     "voice": 1,
     "step": "A",
-    "octave": 1,
+    "octave": 2,
     "notehead": "circle-x",
     "stemDirection": "up"
   },
@@ -112,25 +112,25 @@
     "part": "Tom",
     "voice": 2,
     "step": "B",
-    "octave": 1,
+    "octave": 2,
     "notehead": "normal",
-    "stemDirection": "down"
+    "stemDirection": "up"
   },
   "48": {
     "name": "Hi-Mid Tom",
     "part": "Tom",
     "voice": 2,
     "step": "C",
-    "octave": 2,
+    "octave": 3,
     "notehead": "normal",
-    "stemDirection": "down"
+    "stemDirection": "up"
   },
   "49": {
     "name": "Crash Cymbal 1",
     "part": "Crash",
     "voice": 1,
     "step": "C",
-    "octave": 2,
+    "octave": 3,
     "notehead": "x",
     "stemDirection": "up"
   },
@@ -139,16 +139,16 @@
     "part": "Tom",
     "voice": 2,
     "step": "D",
-    "octave": 2,
+    "octave": 3,
     "notehead": "normal",
-    "stemDirection": "down"
+    "stemDirection": "up"
   },
   "51": {
     "name": "Ride Cymbal 1",
     "part": "Ride",
     "voice": 1,
     "step": "D",
-    "octave": 2,
+    "octave": 3,
     "notehead": "x",
     "stemDirection": "up"
   },
@@ -157,7 +157,7 @@
     "part": "China",
     "voice": 1,
     "step": "E",
-    "octave": 2,
+    "octave": 3,
     "notehead": "x",
     "stemDirection": "up"
   },
@@ -166,7 +166,7 @@
     "part": "Ride",
     "voice": 1,
     "step": "F",
-    "octave": 2,
+    "octave": 3,
     "notehead": "diamond",
     "stemDirection": "up"
   },
@@ -175,7 +175,7 @@
     "part": "Tambourine",
     "voice": 1,
     "step": "F",
-    "octave": 2,
+    "octave": 3,
     "notehead": "diamond",
     "stemDirection": "up"
   },
@@ -184,7 +184,7 @@
     "part": "Splash",
     "voice": 1,
     "step": "G",
-    "octave": 2,
+    "octave": 3,
     "notehead": "x",
     "stemDirection": "up"
   },
@@ -193,7 +193,7 @@
     "part": "Cowbell",
     "voice": 1,
     "step": "G",
-    "octave": 2,
+    "octave": 3,
     "notehead": "triangle",
     "stemDirection": "up"
   },
@@ -202,7 +202,7 @@
     "part": "Crash",
     "voice": 1,
     "step": "A",
-    "octave": 2,
+    "octave": 3,
     "notehead": "x",
     "stemDirection": "up"
   },
@@ -211,7 +211,7 @@
     "part": "Vibraslap",
     "voice": 1,
     "step": "A",
-    "octave": 2,
+    "octave": 3,
     "notehead": "diamond",
     "stemDirection": "up"
   },
@@ -220,7 +220,7 @@
     "part": "Ride",
     "voice": 1,
     "step": "B",
-    "octave": 2,
+    "octave": 3,
     "notehead": "x",
     "stemDirection": "up"
   },
@@ -229,7 +229,7 @@
     "part": "Bongo",
     "voice": 1,
     "step": "C",
-    "octave": 3,
+    "octave": 4,
     "notehead": "normal",
     "stemDirection": "up"
   },
@@ -238,7 +238,7 @@
     "part": "Bongo",
     "voice": 1,
     "step": "C",
-    "octave": 3,
+    "octave": 4,
     "notehead": "normal",
     "stemDirection": "up"
   },
@@ -247,7 +247,7 @@
     "part": "Conga",
     "voice": 1,
     "step": "D",
-    "octave": 3,
+    "octave": 4,
     "notehead": "normal",
     "stemDirection": "up"
   },
@@ -256,7 +256,7 @@
     "part": "Conga",
     "voice": 1,
     "step": "D",
-    "octave": 3,
+    "octave": 4,
     "notehead": "normal",
     "stemDirection": "up"
   },
@@ -265,7 +265,7 @@
     "part": "Conga",
     "voice": 1,
     "step": "E",
-    "octave": 3,
+    "octave": 4,
     "notehead": "normal",
     "stemDirection": "up"
   },
@@ -274,7 +274,7 @@
     "part": "Timbale",
     "voice": 1,
     "step": "F",
-    "octave": 3,
+    "octave": 4,
     "notehead": "normal",
     "stemDirection": "up"
   },
@@ -283,7 +283,7 @@
     "part": "Timbale",
     "voice": 1,
     "step": "F",
-    "octave": 3,
+    "octave": 4,
     "notehead": "normal",
     "stemDirection": "up"
   },
@@ -292,7 +292,7 @@
     "part": "Agogo",
     "voice": 1,
     "step": "G",
-    "octave": 3,
+    "octave": 4,
     "notehead": "normal",
     "stemDirection": "up"
   },
@@ -301,7 +301,7 @@
     "part": "Agogo",
     "voice": 1,
     "step": "G",
-    "octave": 3,
+    "octave": 4,
     "notehead": "normal",
     "stemDirection": "up"
   },
@@ -310,7 +310,7 @@
     "part": "Cabasa",
     "voice": 1,
     "step": "A",
-    "octave": 3,
+    "octave": 4,
     "notehead": "normal",
     "stemDirection": "up"
   },
@@ -319,7 +319,7 @@
     "part": "Maracas",
     "voice": 1,
     "step": "A",
-    "octave": 3,
+    "octave": 4,
     "notehead": "normal",
     "stemDirection": "up"
   },
@@ -328,7 +328,7 @@
     "part": "Whistle",
     "voice": 1,
     "step": "B",
-    "octave": 3,
+    "octave": 4,
     "notehead": "normal",
     "stemDirection": "up"
   },
@@ -337,7 +337,7 @@
     "part": "Whistle",
     "voice": 1,
     "step": "C",
-    "octave": 4,
+    "octave": 5,
     "notehead": "normal",
     "stemDirection": "up"
   },
@@ -346,7 +346,7 @@
     "part": "Guiro",
     "voice": 1,
     "step": "C",
-    "octave": 4,
+    "octave": 5,
     "notehead": "normal",
     "stemDirection": "up"
   },
@@ -355,7 +355,7 @@
     "part": "Guiro",
     "voice": 1,
     "step": "D",
-    "octave": 4,
+    "octave": 5,
     "notehead": "normal",
     "stemDirection": "up"
   },
@@ -364,7 +364,7 @@
     "part": "Claves",
     "voice": 1,
     "step": "D",
-    "octave": 4,
+    "octave": 5,
     "notehead": "normal",
     "stemDirection": "up"
   },
@@ -373,7 +373,7 @@
     "part": "WoodBlock",
     "voice": 1,
     "step": "E",
-    "octave": 4,
+    "octave": 5,
     "notehead": "normal",
     "stemDirection": "up"
   },
@@ -382,7 +382,7 @@
     "part": "WoodBlock",
     "voice": 1,
     "step": "F",
-    "octave": 4,
+    "octave": 5,
     "notehead": "normal",
     "stemDirection": "up"
   },
@@ -391,7 +391,7 @@
     "part": "Cuica",
     "voice": 1,
     "step": "F",
-    "octave": 4,
+    "octave": 5,
     "notehead": "normal",
     "stemDirection": "up"
   },
@@ -400,7 +400,7 @@
     "part": "Cuica",
     "voice": 1,
     "step": "G",
-    "octave": 4,
+    "octave": 5,
     "notehead": "normal",
     "stemDirection": "up"
   },
@@ -409,7 +409,7 @@
     "part": "Triangle",
     "voice": 1,
     "step": "G",
-    "octave": 4,
+    "octave": 5,
     "notehead": "normal",
     "stemDirection": "up"
   },
@@ -418,7 +418,7 @@
     "part": "Triangle",
     "voice": 1,
     "step": "A",
-    "octave": 4,
+    "octave": 5,
     "notehead": "normal",
     "stemDirection": "up"
   }
