@@ -19,6 +19,8 @@ function kickChord(gridPosition: number): Chord {
         pitch: 36,
         velocity: 100,
         ticks: 0,
+  durationTicks: 24,
+  durationGrids: 1,
         startTime: 0,
         duration: 0.1,
         gridPosition,

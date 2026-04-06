@@ -45,6 +45,7 @@ export function parseMidi(filePath: string): ParsedMidi {
         pitch: note.midi,
         velocity: Math.round(note.velocity * 127),
         ticks: note.ticks,
+        durationTicks: note.durationTicks,
         startTime: note.time,
         duration: note.duration,
       });

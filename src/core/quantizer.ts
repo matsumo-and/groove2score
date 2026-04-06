@@ -24,11 +24,12 @@ export function gridToBeats(gridPosition: number, subdivision: number): number {
 }
 
 /**
- * Quantize all notes by snapping ticks to the nearest grid position.
+ * Quantize all notes: snap start position and duration to nearest grid values.
  */
 export function quantizeNotes(notes: MappedNote[], opts: QuantizeOptions): QuantizedNote[] {
   return notes.map((note) => ({
     ...note,
     gridPosition: snapToGrid(note.ticks, opts),
+    durationGrids: Math.max(1, snapToGrid(note.durationTicks, opts)),
   }));
 }

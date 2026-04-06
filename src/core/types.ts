@@ -3,8 +3,9 @@ export interface RawNote {
   pitch: number; // MIDI note number (0–127)
   velocity: number; // 0–127
   ticks: number; // MIDI tick position (absolute)
+  durationTicks: number; // note duration in MIDI ticks
   startTime: number; // seconds (for reference only)
-  duration: number; // seconds
+  duration: number; // seconds (for reference only)
 }
 
 import type { DrumMappingEntry } from './drum-parts.js';
@@ -20,6 +21,7 @@ export interface MappedNote extends RawNote {
 /** A note after quantization (startTime snapped to grid). */
 export interface QuantizedNote extends MappedNote {
   gridPosition: number; // beat position in units of the grid subdivision
+  durationGrids: number; // note duration snapped to nearest grid value (min 1)
 }
 
 /** One or more simultaneous notes merged into a chord beat. */

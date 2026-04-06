@@ -27,6 +27,7 @@ const raw = (pitch: number): RawNote => ({
   pitch,
   velocity: 100,
   ticks: 0,
+  durationTicks: 24,
   startTime: 0,
   duration: 0.1,
 });
