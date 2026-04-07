@@ -35,8 +35,24 @@ describe('quantizeNotes', () => {
 
   test('snaps notes to nearest grid position', () => {
     const notes: MappedNote[] = [
-      { pitch: 36, velocity: 100, ticks: 2, durationTicks: 24, startTime: 0, duration: 0.1, mapping: dummyMapping },
-      { pitch: 36, velocity: 100, ticks: 96, durationTicks: 96, startTime: 0.5, duration: 0.1, mapping: dummyMapping },
+      {
+        pitch: 36,
+        velocity: 100,
+        ticks: 2,
+        durationTicks: 24,
+        startTime: 0,
+        duration: 0.1,
+        mapping: dummyMapping,
+      },
+      {
+        pitch: 36,
+        velocity: 100,
+        ticks: 96,
+        durationTicks: 96,
+        startTime: 0.5,
+        duration: 0.1,
+        mapping: dummyMapping,
+      },
     ];
     const result = quantizeNotes(notes, opts);
     expect(result[0].gridPosition).toBe(0); // ticks=2 → round(2/24)=0
@@ -45,9 +61,33 @@ describe('quantizeNotes', () => {
 
   test('durationGrids is quantized from durationTicks', () => {
     const notes: MappedNote[] = [
-      { pitch: 36, velocity: 100, ticks: 0, durationTicks: 96, startTime: 0, duration: 0.5, mapping: dummyMapping },
-      { pitch: 36, velocity: 100, ticks: 0, durationTicks: 48, startTime: 0, duration: 0.25, mapping: dummyMapping },
-      { pitch: 36, velocity: 100, ticks: 0, durationTicks: 10, startTime: 0, duration: 0.05, mapping: dummyMapping },
+      {
+        pitch: 36,
+        velocity: 100,
+        ticks: 0,
+        durationTicks: 96,
+        startTime: 0,
+        duration: 0.5,
+        mapping: dummyMapping,
+      },
+      {
+        pitch: 36,
+        velocity: 100,
+        ticks: 0,
+        durationTicks: 48,
+        startTime: 0,
+        duration: 0.25,
+        mapping: dummyMapping,
+      },
+      {
+        pitch: 36,
+        velocity: 100,
+        ticks: 0,
+        durationTicks: 10,
+        startTime: 0,
+        duration: 0.05,
+        mapping: dummyMapping,
+      },
     ];
     const result = quantizeNotes(notes, opts);
     expect(result[0].durationGrids).toBe(4); // 96 ticks → 4 grids (quarter note)
@@ -57,7 +97,15 @@ describe('quantizeNotes', () => {
 
   test('eighth note lands on grid=2', () => {
     const notes: MappedNote[] = [
-      { pitch: 38, velocity: 100, ticks: 48, durationTicks: 24, startTime: 0.25, duration: 0.1, mapping: dummyMapping },
+      {
+        pitch: 38,
+        velocity: 100,
+        ticks: 48,
+        durationTicks: 24,
+        startTime: 0.25,
+        duration: 0.1,
+        mapping: dummyMapping,
+      },
     ];
     const result = quantizeNotes(notes, opts);
     expect(result[0].gridPosition).toBe(2); // ticks=48 → 48/24=2

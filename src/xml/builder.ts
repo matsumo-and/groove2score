@@ -1,3 +1,4 @@
+import type { DrumMappingEntry } from '../core/drum-parts.js';
 import { isGhostNote } from '../core/normalizer.js';
 import type { Chord, QuantizedNote } from '../core/types.js';
 
@@ -150,6 +151,19 @@ function computeRests(
 // Note XML
 // ---------------------------------------------------------------------------
 
+/** Collect unique (MIDI pitch → mapping) pairs from all chords, sorted by pitch. */
+function collectInstruments(chords: Chord[]): Map<number, DrumMappingEntry> {
+  const instruments = new Map<number, DrumMappingEntry>();
+  for (const chord of chords) {
+    for (const note of chord.notes) {
+      if (!instruments.has(note.pitch)) {
+        instruments.set(note.pitch, note.mapping);
+      }
+    }
+  }
+  return new Map([...instruments].sort((a, b) => a[0] - b[0]));
+}
+
 function noteheadXml(type: string): string {
   if (type === 'x') return `        <notehead>x</notehead>\n`;
   if (type === 'circle-x') return `        <notehead>circle-x</notehead>\n`;
@@ -175,6 +189,7 @@ function buildNoteXml(
   xml += `          <display-octave>${mapping.octave}</display-octave>\n`;
   xml += `        </unpitched>\n`;
   xml += `        <duration>${durationGrids}</duration>\n`;
+  xml += `        <instrument id="P1-X${note.pitch}"/>\n`;
   xml += `        <voice>${mapping.voice}</voice>\n`;
   xml += `        <type>${nv.type}</type>\n`;
   for (let d = 0; d < nv.dots; d++) xml += '        <dot/>\n';
@@ -336,6 +351,20 @@ export function buildMusicXml(chords: Chord[], opts: BuildOptions): string {
   }
 
   const title = opts.title ?? 'Drum Score';
+  const instruments = collectInstruments(chords);
+
+  let scoreInstruments = '';
+  let midiInstruments = '';
+  for (const [pitch, mapping] of instruments) {
+    scoreInstruments += `      <score-instrument id="P1-X${pitch}">\n`;
+    scoreInstruments += `        <instrument-name>${escapeXml(mapping.name)}</instrument-name>\n`;
+    scoreInstruments += `      </score-instrument>\n`;
+    midiInstruments += `      <midi-instrument id="P1-X${pitch}">\n`;
+    midiInstruments += `        <midi-channel>10</midi-channel>\n`;
+    midiInstruments += `        <midi-program>1</midi-program>\n`;
+    midiInstruments += `        <midi-unpitched>${pitch}</midi-unpitched>\n`;
+    midiInstruments += `      </midi-instrument>\n`;
+  }
 
   return `<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE score-partwise PUBLIC
@@ -352,10 +381,7 @@ export function buildMusicXml(chords: Chord[], opts: BuildOptions): string {
   <part-list>
     <score-part id="P1">
       <part-name>Drums</part-name>
-      <score-instrument id="P1-I1">
-        <instrument-name>Standard Kit</instrument-name>
-      </score-instrument>
-    </score-part>
+${scoreInstruments}${midiInstruments}    </score-part>
   </part-list>
   <part id="P1">
 ${measuresXml}  </part>
