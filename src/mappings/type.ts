@@ -51,20 +51,20 @@ export type DrumArticulation = HiHatArticulation | SnareArticulation | CymbalArt
 /**
  * A single drum instrument note definition.
  *
- * `articulation` is optional and refines how the note is played (e.g. open vs.
- * closed hi-hat, rimshot vs. normal snare stroke). When omitted, the default
- * playing technique for the instrument is implied.
+ * This is a discriminated union on `type`, so each instrument only accepts its
+ * own articulation values — invalid combinations are caught at compile time.
  *
  * @example
  * { name: "Acoustic Snare", type: "Snare" }
  * { name: "Side Stick",     type: "Snare", articulation: "rim" }
  * { name: "Open Hi-Hat",    type: "HiHat", articulation: "open" }
  */
-export type DrumNote = {
-  name: string;
-  type: DrumInstruments;
-  articulation?: DrumArticulation;
-};
+export type DrumNote =
+  | { name: string; type: 'Kick' }
+  | { name: string; type: 'Snare'; articulation?: SnareArticulation }
+  | { name: string; type: 'HiHat'; articulation?: HiHatArticulation }
+  | { name: string; type: 'HighTom' | 'LowTom' | 'FloorTom' }
+  | { name: string; type: 'Crash' | 'Ride' | 'China' | 'Splash'; articulation?: CymbalArticulation };
 
 /**
  * Maps MIDI note numbers to their corresponding drum note definitions.
