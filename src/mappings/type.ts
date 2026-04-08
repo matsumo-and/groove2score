@@ -29,7 +29,7 @@ export type DrumInstruments =
   | 'Splash';
 
 /** Playing articulation for hi-hat: `"open"` or `"close"`. */
-export type HiHatArticulation = 'open' | 'close';
+export type HiHatArticulation = 'open' | 'close' | 'pedal';
 
 /**
  * Playing articulation for snare:
@@ -64,7 +64,11 @@ export type DrumNote =
   | { name: string; type: 'Snare'; articulation?: SnareArticulation }
   | { name: string; type: 'HiHat'; articulation?: HiHatArticulation }
   | { name: string; type: 'HighTom' | 'LowTom' | 'FloorTom' }
-  | { name: string; type: 'Crash' | 'Ride' | 'China' | 'Splash'; articulation?: CymbalArticulation };
+  | {
+      name: string;
+      type: 'Crash' | 'Ride' | 'China' | 'Splash';
+      articulation?: CymbalArticulation;
+    };
 
 /**
  * Maps MIDI note numbers to their corresponding drum note definitions.

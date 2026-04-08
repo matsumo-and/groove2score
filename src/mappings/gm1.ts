@@ -42,7 +42,7 @@ export const DEFAULT_MAPPING: DrumMapping = {
   44: {
     name: 'Pedal Hi-Hat',
     type: 'HiHat',
-    articulation: 'close',
+    articulation: 'pedal',
   },
   45: {
     name: 'Low Tom',
