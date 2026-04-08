@@ -11,7 +11,8 @@ export const DEFAULT_MAPPING: DrumMapping = {
   },
   37: {
     name: 'Side Stick',
-    type: 'SideStick',
+    type: 'Snare',
+    articulation: 'rim',
   },
   38: {
     name: 'Acoustic Snare',
@@ -31,7 +32,8 @@ export const DEFAULT_MAPPING: DrumMapping = {
   },
   42: {
     name: 'Closed Hi-Hat',
-    type: 'CloseHiHat',
+    type: 'HiHat',
+    articulation: 'close',
   },
   43: {
     name: 'High Floor Tom',
@@ -39,7 +41,8 @@ export const DEFAULT_MAPPING: DrumMapping = {
   },
   44: {
     name: 'Pedal Hi-Hat',
-    type: 'CloseHiHat',
+    type: 'HiHat',
+    articulation: 'close',
   },
   45: {
     name: 'Low Tom',
@@ -47,7 +50,8 @@ export const DEFAULT_MAPPING: DrumMapping = {
   },
   46: {
     name: 'Open Hi-Hat',
-    type: 'OpenHiHat',
+    type: 'HiHat',
+    articulation: 'open',
   },
   47: {
     name: 'Low-Mid Tom',
@@ -76,6 +80,7 @@ export const DEFAULT_MAPPING: DrumMapping = {
   53: {
     name: 'Ride Bell',
     type: 'Ride',
+    articulation: 'cup',
   },
   54: {
     name: 'Tambourine',

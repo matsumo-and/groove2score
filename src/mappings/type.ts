@@ -1,27 +1,25 @@
 /**
  * Drum instrument categories used to classify each MIDI note in a {@link DrumMapping}.
+ * Open/closed variants and playing techniques are expressed via {@link DrumArticulation}
+ * rather than separate instrument values.
  *
- * | Value         | Instrument       |
- * |---------------|------------------|
- * | `Kick`        | Bass drum        |
- * | `Snare`       | Snare drum       |
- * | `SideStick`   | Rimshot / side stick |
- * | `OpenHiHat`   | Open hi-hat      |
- * | `CloseHiHat`  | Closed hi-hat    |
- * | `HighTom`     | High tom         |
- * | `LowTom`      | Mid / low tom    |
- * | `FloorTom`    | Floor tom        |
- * | `Crash`       | Crash cymbal     |
- * | `Ride`        | Ride cymbal      |
- * | `China`       | China cymbal     |
- * | `Splash`      | Splash cymbal    |
+ * | Value       | Instrument    |
+ * |-------------|---------------|
+ * | `Kick`      | Bass drum     |
+ * | `Snare`     | Snare drum    |
+ * | `HiHat`     | Hi-hat        |
+ * | `HighTom`   | High tom      |
+ * | `LowTom`    | Mid / low tom |
+ * | `FloorTom`  | Floor tom     |
+ * | `Crash`     | Crash cymbal  |
+ * | `Ride`      | Ride cymbal   |
+ * | `China`     | China cymbal  |
+ * | `Splash`    | Splash cymbal |
  */
 export type DrumInstruments =
   | 'Kick'
   | 'Snare'
-  | 'SideStick'
-  | 'OpenHiHat'
-  | 'CloseHiHat'
+  | 'HiHat'
   | 'HighTom'
   | 'LowTom'
   | 'FloorTom'
@@ -30,15 +28,42 @@ export type DrumInstruments =
   | 'China'
   | 'Splash';
 
+/** Playing articulation for hi-hat: `"open"` or `"close"`. */
+export type HiHatArticulation = 'open' | 'close';
+
+/**
+ * Playing articulation for snare:
+ * - `"normal"` — standard head stroke
+ * - `"rim"` — rimshot / side stick
+ */
+export type SnareArticulation = 'normal' | 'rim';
+
+/**
+ * Playing articulation for cymbals (Crash, Ride, China, Splash):
+ * - `"normal"` — standard bow stroke
+ * - `"cup"` — bell / cup stroke
+ */
+export type CymbalArticulation = 'normal' | 'cup';
+
+/** Union of all drum articulation values. */
+export type DrumArticulation = HiHatArticulation | SnareArticulation | CymbalArticulation;
+
 /**
  * A single drum instrument note definition.
  *
+ * `articulation` is optional and refines how the note is played (e.g. open vs.
+ * closed hi-hat, rimshot vs. normal snare stroke). When omitted, the default
+ * playing technique for the instrument is implied.
+ *
  * @example
- * { name: "Kick Drum", type: "kick" }
+ * { name: "Acoustic Snare", type: "Snare" }
+ * { name: "Side Stick",     type: "Snare", articulation: "rim" }
+ * { name: "Open Hi-Hat",    type: "HiHat", articulation: "open" }
  */
 export type DrumNote = {
   name: string;
   type: DrumInstruments;
+  articulation?: DrumArticulation;
 };
 
 /**
