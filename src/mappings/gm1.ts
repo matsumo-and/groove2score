@@ -1,6 +1,6 @@
 import { DrumMapping } from './type';
 
-export const DEFAULT_MAPPING: DrumMapping = {
+export const GM1_MAPPING: DrumMapping = {
   35: {
     name: 'Acoustic Bass Drum',
     type: 'Kick',
