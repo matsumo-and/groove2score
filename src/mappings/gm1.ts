@@ -1,5 +1,8 @@
 import { DrumMapping } from './type';
 
+/**
+ * General Midi2 Mapping.
+ */
 export const GM1_MAPPING: DrumMapping = {
   35: {
     name: 'Acoustic Bass Drum',

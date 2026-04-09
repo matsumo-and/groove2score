@@ -83,3 +83,13 @@ export type DrumNote =
  * };
  */
 export type DrumMapping = Record<number, DrumNote>;
+
+/**
+ * Identifies the MIDI mapping profile to use for drum note resolution.
+ *
+ * | Value   | Description                          |
+ * |---------|--------------------------------------|
+ * | `gm1`   | General MIDI 1 standard drum map     |
+ * | `ad2`   | Addictive Drums 2 custom drum map    |
+ */
+export type DrumProfile = 'gm1' | 'ad2';
