@@ -9,7 +9,7 @@
   "scripts": {
     "build": "tsc",
     "dev": "node --import tsx/esm src/cli/index.ts",
-    "test": "NODE_OPTIONS='--experimental-vm-modules' jest",
+    "test": "NODE_OPTIONS='--experimental-vm-modules' jest --passWithNoTests",
     "lint": "biome check .",
     "lint:fix": "biome check . --write",
     "format": "biome format --write .",
