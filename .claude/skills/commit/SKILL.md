@@ -3,15 +3,6 @@ name: commit
 description: groove2score プロジェクト用のコミット＆プッシュスキル。コミット、プッシュ、PR作成を行うとき、または「コミット」「プッシュ」「commit」「push」「PR」と言われたときに使うこと。
 ---
 
-## git アカウントの確認
-
-コミット前に必ず以下の設定を確認・適用すること：
-
-```bash
-git config user.name "matdumo-and"
-git config user.email "yh134.toisanda@gmail.com"
-```
-
 ## 機密情報チェック
 
 `git diff HEAD` の内容を確認し、以下が含まれていないかチェックすること：
