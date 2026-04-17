@@ -47,7 +47,9 @@ program
   .action(
     (input: string, opts: { output?: string; from?: string; to: string; dryRun?: boolean }) => {
       if (!opts.from) {
-        console.error(`Missing required option: --from <profile>. Valid profiles: ${DRUM_PROFILES.join(', ')}`);
+        console.error(
+          `Missing required option: --from <profile>. Valid profiles: ${DRUM_PROFILES.join(', ')}`,
+        );
         process.exit(1);
       }
 
