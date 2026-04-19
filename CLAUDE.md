@@ -1,14 +1,14 @@
 # groove2score
 
-ドラム MIDI ファイル（主に Addictive Drums 2）を定量化・整形した Midi または MusicXML に変換する CLI ツール。MuseScore での譜面表示を最終目的とする。
+A CLI tool that converts drum MIDI files (primarily from Addictive Drums 2) into quantized and formatted MIDI or MusicXML. The end goal is clean drum notation for display in MuseScore.
 
-## 構成
+## Structure
 
-- `src/cli/` — CLI エントリポイント（commander）
-- `src/core/` — MIDI 解析・MusicXML 変換ロジック
-- `src/mappings/` — ドラム音源ごとの MIDI ノート番号 → 打楽器種別マッピング
+- `src/cli/` — CLI entry point (commander)
+- `src/core/` — MIDI parsing and MusicXML conversion logic
+- `src/mappings/` — Per-drum-source MIDI note number → percussion type mappings
 
-## 制限
+## Constraints
 
-- 調査はサブエージェントに任せること
-- 実装後は必ずチェックを行うこと
+- Delegate exploration and research tasks to sub-agents
+- Always run the verify skill after completing an implementation

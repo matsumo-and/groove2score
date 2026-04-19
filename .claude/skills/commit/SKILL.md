@@ -1,34 +1,34 @@
 ---
 name: commit
-description: groove2score プロジェクト用のコミット＆プッシュスキル。コミット、プッシュ、PR作成を行うとき、または「コミット」「プッシュ」「commit」「push」「PR」と言われたときに使うこと。
+description: Commit and push skill for the groove2score project. Use when committing, pushing, creating a PR, or when the user says "commit", "push", or "PR".
 ---
 
-## 機密情報チェック
+## Sensitive Information Check
 
-`git diff HEAD` の内容を確認し、以下が含まれていないかチェックすること：
-- APIキー、トークン、パスワード、シークレット
-- 秘密鍵や認証情報
-- `.env` ファイルや credential ファイル
+Review the output of `git diff HEAD` and confirm none of the following are present:
+- API keys, tokens, passwords, or secrets
+- Private keys or credentials
+- `.env` files or credential files
 
-**見つかった場合は即座に中断し、ユーザーに確認を取ること。確認が取れるまでコミットしない。**
+**If any are found, stop immediately and ask the user before proceeding. Do not commit until confirmed.**
 
-## コミットメッセージのルール
+## Commit Message Rules
 
-- 簡潔かつ分かりやすく（件名は72文字以内）
-- 命令形で書く（例：「Add feature」「Fix bug」）
-- リポジトリの既存スタイルに合わせる
+- Keep the subject line under 72 characters
+- Use the imperative mood (e.g. "Add feature", "Fix bug")
+- Match the style of existing commits in the repository
 
-## コミットコマンド
+## Commit Command
 
-必ず `--signoff` を付けること：
+Always include `--signoff`:
 
 ```bash
-git commit --signoff -m "メッセージ"
+git commit --signoff -m "message"
 ```
 
-## プッシュ・PR作成（要求された場合）
+## Push and PR (when requested)
 
 ```bash
 git push origin <branch>
-gh pr create --title "タイトル" --body "説明"
+gh pr create --title "title" --body "description"
 ```
