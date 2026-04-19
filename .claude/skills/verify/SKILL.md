@@ -1,54 +1,54 @@
 ---
 name: verify
-description: groove2score のコード品質検証スキル。実装が完了したとき、ユーザーが「チェック」「確認」「検証」「verify」「lint」「テスト」「ビルド」などと言ったとき、またはコードの変更が一段落したと判断できるときは必ずこのスキルを使うこと。
+description: Code quality verification skill for groove2score. Use whenever implementation is complete, or when the user says "check", "verify", "lint", "test", "build", or similar.
 ---
 
-# groove2score コード品質検証
+# groove2score Code Quality Verification
 
-## 実行順序
+## Execution Order
 
-以下を **この順番で** 実行する。
+Run the following steps **in this order**.
 
-### 1. Lint 自動修正
+### 1. Auto-fix lint issues
 ```bash
 pnpm lint:fix
 ```
 
-### 2. Format 自動修正
+### 2. Auto-fix formatting
 ```bash
 pnpm format
 ```
 
-### 3. 型チェック
+### 3. Type check
 ```bash
 pnpm typecheck
 ```
-エラーがあればコードを修正してから次へ。
+Fix any errors before continuing.
 
-### 4. ビルド
+### 4. Build
 ```bash
 pnpm build
 ```
-エラーがあればコードを修正してから次へ。
+Fix any errors before continuing.
 
-### 5. テスト
+### 5. Test
 ```bash
 pnpm test
 ```
-失敗したテストがあればコードを修正する。
+Fix any failing tests before continuing.
 
-## 結果の報告
+## Reporting Results
 
-全ステップ完了後にまとめて報告する：
+Report a summary after all steps complete:
 
 ```
-## 検証結果
+## Verification Results
 
-| ステップ     | 結果               |
-|------------|-------------------|
-| Lint 修正   | ✓ or 修正N件      |
-| Format 修正 | ✓ or 修正N件      |
-| 型チェック   | ✓ or エラー内容   |
-| ビルド       | ✓ or エラー内容   |
-| テスト       | ✓ or N件失敗      |
+| Step         | Result                  |
+|--------------|-------------------------|
+| Lint fix     | ✓ or N fixes applied    |
+| Format fix   | ✓ or N fixes applied    |
+| Type check   | ✓ or error details      |
+| Build        | ✓ or error details      |
+| Tests        | ✓ or N failures         |
 ```
