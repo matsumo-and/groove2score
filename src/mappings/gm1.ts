@@ -1,7 +1,7 @@
 import { DrumMapping } from './type';
 
 /**
- * General Midi2 Mapping.
+ * General MIDI 1 standard drum map (MIDI note numbers 35–59).
  */
 export const GM1_MAPPING: DrumMapping = {
   35: {

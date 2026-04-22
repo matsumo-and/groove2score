@@ -1,5 +1,8 @@
 import { DrumMapping } from './type';
 
+/**
+ * MuseScore common drum map used as a generic fallback profile.
+ */
 export const MSC_COMMON_MAPPING: DrumMapping = {
   36: {
     name: 'Bass Drum 2',

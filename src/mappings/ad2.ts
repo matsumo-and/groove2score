@@ -1,7 +1,7 @@
 import { DrumMapping } from './type';
 
 /**
- * Addictive Drum Mapping.
+ * Addictive Drums 2 custom drum map.
  */
 export const AD2_MAPPING: DrumMapping = {
   36: {
